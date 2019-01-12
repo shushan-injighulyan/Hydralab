@@ -1,0 +1,50 @@
+body {
+	background-color: #7fffd4;
+}
+
+input{
+  height: 30px;
+  width: 300px ;
+  border-radius: 5px;
+  border: 1px solid grey;
+  margin: 10px auto;
+  display: block;
+}
+
+
+#main-form {
+	width: 350px;
+	height: 370px;
+	margin: 120px auto;
+	background-color: white;	
+	border-radius: 7px;
+}
+
+#submit-button {
+	background-color: white;
+	color: grey;
+}
+
+#sign-in {
+	text-align: center;
+	font-family: Calibri;
+	font-size: 24px;
+	color: grey;
+	padding-top: 12px;
+
+}
+
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: grey;
+  padding-left: 10px;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: grey;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: grey;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: grey;
+}
