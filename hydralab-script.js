@@ -26,7 +26,7 @@ function checkPassword() {
 }
 
 
-function checkDate() {
+function checkYearOfBirth() {
     let date = document.getElementById("yearOfBirth").value;
     return  (!!(Number(date) > new Date().getFullYear() - 90  &&  date <  new Date().getFullYear() - 10) );
 }
@@ -41,7 +41,7 @@ function checkPasswordConfirm() {
 
 function checkFormValidation() {
 
-	if ( checkFirstName() && checkLastName() && checkUsername() && checkPassword() && checkPasswordConfirm() && checkDate()) {
+	if ( checkFirstName() && checkLastName() && checkUsername() && checkPassword() && checkPasswordConfirm() && checkYearOfBirth()) {
 		document.getElementById("main-form").style.display = "none";
 		let congrats = document.createElement("div");
 		let name = document.getElementById("firstName").value;
@@ -50,53 +50,24 @@ function checkFormValidation() {
 		document.getElementById("body").appendChild(congrats);
 	}
 
-	if (!checkFirstName()) {
-		document.getElementById("firstNameError").style.display = "block";
-    }
+	checkFirstName() ? document.getElementById("firstNameError").style.display = "none" :
+                       document.getElementById("firstNameError").style.display = "block";
 
-    if (checkFirstName()) {
-        document.getElementById("firstNameError").style.display = "none";
-    }
+	checkLastName() ? document.getElementById("lastNameError").style.display = "none" :
+                      document.getElementById("lastNameError").style.display = "block";
 
-	if (!checkLastName()) {
-        document.getElementById("lastNameError").style.display = "block";
-    }
+	checkYearOfBirth() ? document.getElementById("yearOfBirthError").style.display = "none" :
+                  document.getElementById("yearOfBirthError").style.display = "block";
 
-    if (checkLastName()) {
-        document.getElementById("lastNameError").style.display = "none";
-    }
+	checkUsername() ? document.getElementById("usernameError").style.display = "none" :
+                      document.getElementById("usernameError").style.display = "block";
 
-	if (!checkDate()) {
-        document.getElementById("yearOfBirthError").style.display = "block";
-    }
 
-    if (checkDate()) {
-        document.getElementById("yearOfBirthError").style.display = "none";
-    }
+	checkPassword() ? document.getElementById("passwordError").style.display = "none":
+                      document.getElementById("passwordError").style.display = "block";
 
-	if (!checkUsername()) {
-        document.getElementById("usernameError").style.display = "block";
-    }
-
-    if (checkUsername()) {
-        document.getElementById("usernameError").style.display = "none";
-    }
-
-	if (!checkPassword()) {
-        document.getElementById("passwordError").style.display = "block";
-    }
-
-	if (checkPassword()) {
-        document.getElementById("passwordError").style.display = "none";
-    }
-
-	if (!checkPasswordConfirm()) {
-        document.getElementById("passwordConfirmError").style.display = "block";
-    }
-
-    if (checkPasswordConfirm()) {
-        document.getElementById("passwordConfirmError").style.display = "none";
-    }
+	checkPasswordConfirm() ? document.getElementById("passwordConfirmError").style.display = "none":
+                             document.getElementById("passwordConfirmError").style.display = "block";
 
 }
 
