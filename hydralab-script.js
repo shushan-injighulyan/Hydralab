@@ -1,19 +1,19 @@
 function checkFirstName() {
-	let firstNamePattern = /^[A-Za-z]+$/;
+	let firstNamePattern = /^[A-Za-z]{2,20}$/;
 	let firstNameValue = document.getElementById("firstName").value;
     return ( !!firstNameValue.match(firstNamePattern));
 }
 
 
 function checkLastName() {
-	let lastNamePattern = /^[A-Za-z]+$/;
+	let lastNamePattern = /^[A-Za-z]{2,20}$/;
 	let lastNameValue = document.getElementById("lastName").value;
 	return ( !!lastNameValue.match(lastNamePattern));
 }
 
 
 function checkUsername() {
-	let usernamePattern = /^[0-9a-zA-Z]+$/;
+	let usernamePattern = /^[0-9a-zA-Z]{2,10}$/;
 	let usernameValue = document.getElementById("username").value;
 	return(!!usernameValue.match(usernamePattern));
 }
@@ -44,8 +44,9 @@ function checkFormValidation() {
 	if ( checkFirstName() && checkLastName() && checkUsername() && checkPassword() && checkPasswordConfirm() && checkYearOfBirth()) {
 		document.getElementById("main-form").style.display = "none";
 		let congrats = document.createElement("div");
-		let name = document.getElementById("firstName").value;
-		congrats.innerHTML = `Congrats ${name}`;
+		let firstName = document.getElementById("firstName").value;
+		let lastName = document.getElementById("lastName").value;
+		congrats.innerHTML = `Congrats ${firstName} ${lastName}`;
 		congrats.className = "congrats";
 		document.getElementById("body").appendChild(congrats);
 	}
